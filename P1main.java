@@ -62,7 +62,7 @@ import java.util.Set;
 
 	}
 	private static int calculateHeuristic(int d, int coverage, int visitedCells) {
-		return 3 * (coverage - visitedCells);
+		return (int) 3 * (coverage - visitedCells);
 	}
 	public static int calculateHeuristic2(int d, int coverage, int visitedCells) {
         int remainingCoverage = coverage - visitedCells;
@@ -178,7 +178,7 @@ import java.util.Set;
             
 			
             State current = frontier.poll();
-			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
+			if (explored.contains("(" + current.getRow() + "," + current.getCol() + ")")) {
 				
 				continue;
 			}
@@ -285,8 +285,8 @@ import java.util.Set;
 
 			
             State current = frontier.poll();
-		
-			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
+			//System.out.println(current.getRow()+ ","+current.getCol());
+			if (explored.contains("(" + current.getRow() + "," + current.getCol() + ")")) {
 			
 				continue;
 			}
@@ -393,7 +393,8 @@ import java.util.Set;
 		}
 	
             State current = frontier.poll();
-			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
+			//System.out.println(current.getRow()+ ","+current.getCol());
+			if (explored.contains("(" + current.getRow() + "," + current.getCol() + ")")) {
 				    continue;
 			}
 			if (previousState != null && !isValidMove(previousState, current)) {
@@ -505,7 +506,7 @@ import java.util.Set;
 			
             State current = frontier.poll();
 			
-			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
+			if (explored.contains("(" + current.getRow() + "," + current.getCol() + ")")) {
 			
 				continue;
 			}
@@ -562,9 +563,8 @@ import java.util.Set;
                 }
 
             }
-			
-			previousState = current;
 			out.add(currKey);
+			previousState = current;
 			
 			
 	
@@ -618,9 +618,9 @@ import java.util.Set;
 				System.out.println("]");
 		}
 
-		
+			
             State current = frontier.poll();
-			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
+			if (explored.contains("(" + current.getRow() + "," + current.getCol() + ")")) {
 	
 				continue;
 			}
