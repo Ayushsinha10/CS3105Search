@@ -283,9 +283,9 @@ import java.util.Set;
 				System.out.println("]");
 		}
 
-			nodesExplored++;
+			
             State current = frontier.poll();
-			System.out.println(current.getRow()+ ","+current.getCol());
+		
 			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
 			
 				continue;
@@ -525,7 +525,7 @@ import java.util.Set;
             if (nodesExplored >= coverageRequired) {
 				if(verbose){
 				System.out.println(nodesExplored);
-				
+				out.add(currKey);
 				Iterator<String> it = out.iterator();
 				
 				while(it.hasNext()){
@@ -562,8 +562,9 @@ import java.util.Set;
                 }
 
             }
-			out.add(currKey);
+			
 			previousState = current;
+			out.add(currKey);
 			
 			
 	
@@ -617,7 +618,7 @@ import java.util.Set;
 				System.out.println("]");
 		}
 
-			nodesExplored++;
+		
             State current = frontier.poll();
 			while (explored.contains("(" + current.getRow() + "," + current.getCol() + ")") && !frontier.isEmpty()) {
 	
@@ -637,7 +638,7 @@ import java.util.Set;
             if (nodesExplored >= coverageRequired) {
 				if(verbose){
 				System.out.println(nodesExplored);
-				
+				out.add(currKey);
 				Iterator<String> it = out.iterator();
 				
 				while(it.hasNext()){
